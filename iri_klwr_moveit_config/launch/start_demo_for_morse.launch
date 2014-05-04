@@ -1,0 +1,28 @@
+<launch>
+
+  <include file="$(find iri_klwr_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <!-- 'joint_state_publisher' is up but 'robot_state_publisher' is not -->
+  <!-- The 'robot_state_publisher' node is not up because Morse don't use it -->
+  <!--  
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+  </node>
+  -->
+  
+  <arg name="/joint_states" />
+  <remap from="/joint_states" to="/kuka_lwr/joint_states"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+    
+  <include file="$(find iri_klwr_moveit_config)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+  </include>
+  
+  <!-- RVIZ application -->
+  <include file="$(find iri_klwr_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="config" value="true"/>
+  </include>
+  
+</launch>

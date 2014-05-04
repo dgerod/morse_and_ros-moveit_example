@@ -1,0 +1,4 @@
+<launch>
+    <!-- send iri_kuka urdf to param server -->
+    <param name="robot_description" command="cat $(find iri_klwr_description)/urdf/kuka_lwr.urdf" />
+</launch>

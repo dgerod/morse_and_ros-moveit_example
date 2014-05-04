@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package>
+  <name>iri_klwr_description</name>
+  <version>0.0.0</version>
+  <description>
+    <p>
+        This package contains URDF and XACRO Files for Kuka LWR arm.
+   </p>
+  </description>
+
+  <maintainer email="dgerod@xyz-lab.org.es">Diego Escudero</maintainer>
+  <license>LGPL</license>
+
+  <!-- The *_depend tags are used to specify dependencies -->
+  <!-- Dependencies can be catkin packages or system dependencies -->
+  <!-- ****************************************************************** -->
+  <!--                 Place build dependencies here                      -->
+  <!-- ****************************************************************** -->
+  <!--   <build_depend>message_generation</build_depend> -->
+  <build_depend>xacro</build_depend>
+
+  <!-- ****************************************************************** -->
+  <!--                   Place run dependencies here                      -->
+  <!-- ****************************************************************** -->
+  <!--   <run_depend>message_runtime</run_depend> -->
+  <run_depend>xacro</run_depend>
+
+  <!-- Use test_depend for packages you need only for testing: -->
+  <!--   <test_depend>gtest</test_depend> -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

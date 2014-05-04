@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<robot name="kuka_lwr">
+
+    <material name="IPA/Orange">
+      <color rgba="1.0 0.5 0.0 1.0"/>
+    </material>
+    <material name="black">
+      <color rgba="0.5 0.5 0.5 1"/>
+    </material>
+        
+    <link name="kuka_link_footprint"/>
+
+    <link name="kuka_link_base">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="black">
+      </material>
+    </visual>
+    </link>
+
+    <joint name="kuka_joint_footprint" type="fixed" >
+        <origin xyz="0 0 0.1185" rpy="0 0 0"/>
+        <parent link="kuka_link_footprint" />
+        <child link="kuka_link_base" />
+    </joint> 
+
+  <link name="kuka_link_1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iri_klwr_description/mesh/joint_1.stl" />
+      </geometry>
+      <material name="IPA/Orange">
+      </material>
+    </visual>
+  </link>
+
+  <joint name="kuka_joint_1" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="200" velocity="1.9634" lower="-2.9670" upper="2.9670"/>
+    <parent link="kuka_link_base"/>
+    <child link="kuka_link_1"/>
+    
+  </joint>
+
+  <link name="kuka_link_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iri_klwr_description/mesh/joint_2.stl" />
+      </geometry>
+      <material name="IPA/Orange">
+      </material>
+    </visual>
+  </link>
+ 
+
+  <joint name="kuka_joint_2" type="revolute">
+    <origin xyz="0 -0.002 0.1915" rpy="1.570796326 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="200" velocity="1.9634" lower="-0.5235" upper="3.66509"/>
+    <parent link="kuka_link_1"/>
+    <child link="kuka_link_2"/>
+
+  </joint>
+  
+  <link name="kuka_link_3">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iri_klwr_description/mesh/joint_3.stl" />
+      </geometry>
+      <material name="IPA/Orange">
+      </material>
+    </visual>
+  </link>	
+  
+  <joint name="kuka_joint_3" type="revolute">
+    <origin xyz="0 0.2085 0" rpy="-1.570796326 0 0"/>
+    <axis xyz="0 0 1"/>   
+    <limit effort="100" velocity="1.9634" lower="-2.9670" upper="2.9670"/>
+    <parent link="kuka_link_2"/>
+    <child link="kuka_link_3"/>
+  </joint>
+  
+   <link name="kuka_link_4">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iri_klwr_description/mesh/joint_4.stl" />
+      </geometry>
+      <material name="IPA/Orange">
+      </material>
+    </visual>
+  </link>
+
+  <joint name="kuka_joint_4" type="revolute">
+    <origin xyz="0 0.002 0.1915" rpy="-1.570796326 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="100" velocity="1.9634" lower="-2.0943" upper="2.0943"/>
+    <parent link="kuka_link_3"/>
+    <child link="kuka_link_4"/>
+  </joint>
+
+
+  <link name="kuka_link_5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iri_klwr_description/mesh/joint_5.stl" />
+      </geometry>
+      <material name="IPA/Orange">
+      </material>
+    </visual>
+  </link>
+
+  <joint name="kuka_joint_5" type="revolute">
+    <origin xyz="0 -0.2085 0" rpy="1.570796326 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="100" velocity="1.9634" lower="-2.9670" upper="2.9670" />
+    <parent link="kuka_link_4"/>
+    <child link="kuka_link_5"/>
+  </joint>
+
+  <link name="kuka_link_6">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iri_klwr_description/mesh/joint_6.stl" />
+      </geometry>
+      <material name="IPA/Orange">
+      </material>
+    </visual>
+  </link>
+
+  <joint name="kuka_joint_6" type="revolute">
+    <origin xyz="0 0.046 0.1815" rpy="1.570796326 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="30" velocity="1.9634" lower="-2.0943951" upper="2.0943951" />
+    <parent link="kuka_link_5"/>
+    <child link="kuka_link_6"/>
+  </joint>
+
+  <link name="kuka_link_7">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iri_klwr_description/mesh/joint_7.stl" />
+      </geometry>
+      <material name="IPA/Orange">
+      </material>
+    </visual>
+  </link>
+  
+  <joint name="kuka_joint_7" type="revolute">
+    <origin xyz="0 0.057 0.0455" rpy="-1.570796326 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="30" velocity="1.9634" lower="-2.9670" upper="2.9670" />
+    <parent link="kuka_link_6"/>
+    <child link="kuka_link_7"/>
+  </joint>
+  
+  <link name="kuka_link_tcp" />
+  
+  <joint name="kuka_joint_tcp" type="fixed">
+    <origin xyz="0 0 0.02" rpy="0 0 0" />
+    <parent link="kuka_link_7"/>
+    <child link="kuka_link_tcp"/>
+
+  </joint>
+
+</robot>
