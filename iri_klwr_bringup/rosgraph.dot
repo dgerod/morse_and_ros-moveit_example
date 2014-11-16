@@ -1,0 +1,36 @@
+digraph graphname {
+	graph [rankdir=LR, rank=same];
+	node [label="\N"];
+	graph [bb="0,0,842,180"];
+	subgraph cluster_kuka_lwr {
+		graph [label=kuka_lwr,
+			bb="134,8,482,140"];
+		_kuka_lwr_joint_states [label="/kuka_lwr/joint_states", URL=topic_3A_kuka_lwr_joint_states, shape=box, pos="308,88", width="2.3333", height="0.5"];
+		kuka_lwr_follow_joint_trajectory_action_topics [label="kuka_lwr/follow_joint_trajectory/action_topics", URL=topic_3Akuka_lwr_follow_joint_trajectory_action_topics, shape=box, pos="308,34", width="4.6111", height="0.5"];
+	}
+	subgraph cluster_robot_state_publisher {
+		graph [label=robot_state_publisher,
+			bb="502,94,760,172"];
+		_robot_state_publisher [label="/robot_state_publisher", URL=_robot_state_publisher, shape=ellipse, pos="631,120", width="3.3611", height="0.51389"];
+	}
+	subgraph cluster_morse {
+		graph [label=morse,
+			bb="8,22,114,100"];
+		_morse [label="/morse", URL=_morse, shape=ellipse, pos="61,48", width="1.2222", height="0.51389"];
+	}
+	subgraph cluster_move_group {
+		graph [label=move_group,
+			bb="548,8,714,86"];
+		_move_group [label="/move_group", URL=_move_group, shape=ellipse, pos="631,34", width="2.0833", height="0.51389"];
+	}
+	_tf [label="/tf", URL=topic_3A_tf, shape=box, pos="815,77", width="0.75", height="0.5"];
+	_kuka_lwr_joint_states -> _robot_state_publisher [penwidth=1, pos="e,530.05,110 392.86,96.408 431.72,100.26 478.27,104.87 519.87,108.99"];
+	_kuka_lwr_joint_states -> _move_group [penwidth=1, pos="e,571.61,45.119 392.59,75.314 421.03,70.933 452.91,65.892 482,61 507.98,56.632 536.44,51.547 561.47,46.976"];
+	_morse -> _kuka_lwr_joint_states [penwidth=1, pos="e,223.42,75.263 101.9,55.449 112.36,57.308 123.59,59.265 134,61 159.69,65.28 187.55,69.701 213.29,73.696"];
+	_tf -> _move_group [penwidth=1, pos="e,685.21,46.669 787.99,70.688 763.71,65.015 727.1,56.458 695.33,49.034"];
+	_robot_state_publisher -> _tf [penwidth=1, pos="e,787.87,83.433 696.64,104.78 716.95,100.06 739.4,94.829 760,90 765.81,88.637 771.97,87.187 777.98,85.769"];
+	kuka_lwr_follow_joint_trajectory_action_topics -> _move_group [penwidth=1, pos="e,559.79,39.708 474.23,40.747 500.49,40.719 526.58,40.452 549.72,39.947"];
+	kuka_lwr_follow_joint_trajectory_action_topics -> _morse [penwidth=1, pos="e,105.16,50.813 141.68,49.803 132.43,50.159 123.55,50.438 115.29,50.625"];
+	_move_group -> kuka_lwr_follow_joint_trajectory_action_topics [penwidth=1, pos="e,474.23,27.253 559.79,28.292 537.18,27.707 511.1,27.368 484.46,27.276"];
+	_morse -> kuka_lwr_follow_joint_trajectory_action_topics [penwidth=1, pos="e,141.98,37.029 101.51,40.55 110.63,39.61 120.87,38.691 131.78,37.817"];
+}

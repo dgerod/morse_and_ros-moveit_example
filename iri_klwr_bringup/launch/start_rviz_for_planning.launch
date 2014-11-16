@@ -1,0 +1,9 @@
+<launch>
+
+ <!-- RVIZ application -->
+  <include file="$(find iri_klwr_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="config" value="true"/>
+  </include>
+
+</launch>
+

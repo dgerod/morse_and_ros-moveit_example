@@ -1,6 +1,0 @@
-<launch>
-  
-  <!-- Start demo of MoveIt (including RViz) for Kuka LWR in Morse -->
-  <include file="$(find iri_klwr_moveit_config)/launch/start_demo_for_morse.launch"/>
-                  
-</launch>
