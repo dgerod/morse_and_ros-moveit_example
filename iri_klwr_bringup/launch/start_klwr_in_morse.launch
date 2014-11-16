@@ -1,3 +1,8 @@
 <launch>
+
+   <!-- TO BE DONE!!! -->
+   <!-- At this moment you must run the simulation in MORSE by hand. -->
+   <!-- Execute: 'morse run my_simulation' when you are in 'iri_klwr_morse' directory. -->
+
                   
 </launch>
